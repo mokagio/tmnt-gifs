@@ -39,6 +39,6 @@ def text_and_image(reaction)
   end
 end
 
-def fallback_text(reatction)
+def fallback_text(reaction)
   "I don't have a good reaction for \"#{reaction}\", so I'm returning a random one."
 end
