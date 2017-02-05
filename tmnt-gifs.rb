@@ -35,7 +35,7 @@ def text_and_image(reaction)
   if gif.nil?
     return fallback_text(reaction), TMNT_GIFS.sample[:url]
   else
-    return gif[:message], gif[:url]
+    return "\"#{reaction}\". _#{gif[:message]}_", gif[:url]
   end
 end
 
