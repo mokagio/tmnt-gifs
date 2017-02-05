@@ -32,6 +32,13 @@ def text_and_image(reaction)
     .select { |h| h[:tags].include?(reaction) }
     .sample
 
-  return "I don't have a good reaction for \"#{reaction}\", so I'm returning a random one.", TMNT_GIFS.sample[:url] if gif.nil?
-  return '', gif[:url]
+  if gif.nil?
+    return fallback_text(reaction), TMNT_GIFS.sample[:url]
+  else
+    return gif[:message], gif[:url]
+  end
+end
+
+def fallback_text(reatction)
+  "I don't have a good reaction for \"#{reaction}\", so I'm returning a random one."
 end
